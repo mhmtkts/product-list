@@ -10,6 +10,11 @@ export const truncateText = (text, maxLength) => {
   return `${text.slice(0, maxLength)}...`;
 };
 
+export const calculateDiscountedPrice = (price, discountPercentage) => {
+  return price - (price * discountPercentage) / 100;
+};
+
+
 export const generateMetaTags = (product) => {
   if (!product) return {};
 
@@ -70,9 +75,9 @@ export const generatePriceRanges = (products) => {
     ];
   }
 
-  const step = (max - min) / 4; // 4 aralık oluştur
+  const step = (max - min) / 10; // 4 aralık oluştur
 
-  return Array.from({ length: 4 }, (_, i) => ({
+  return Array.from({ length: 10 }, (_, i) => ({
     min: Math.round(min + step * i),
     max: Math.round(min + step * (i + 1)),
   }));
