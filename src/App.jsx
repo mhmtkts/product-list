@@ -1,13 +1,13 @@
-import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
-import Layout from './components/Layout';
-import LoadingSpinner from './components/LoadingSpinner';
+import React, { Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import Layout from "./components/Layout";
+import LoadingSpinner from "./components/LoadingSpinner";
 
 // Code splitting ile lazy loading
-const Home = React.lazy(() => import('./pages/Home'));
-const ProductDetailPage = React.lazy(() => import('./pages/ProductDetailPage'));
+const Home = React.lazy(() => import("./pages/Home"));
+const ProductDetailPage = React.lazy(() => import("./pages/ProductDetailPage"));
 
 function App() {
   return (

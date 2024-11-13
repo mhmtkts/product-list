@@ -1,15 +1,15 @@
 /* eslint-disable no-useless-catch */
-import axios from 'axios';
+import axios from "axios";
 
 // API'nin base URL'ini tanımlayalım
-const baseURL = 'https://dummyjson.com';
+const baseURL = "https://dummyjson.com";
 
 // Axios instance oluşturalım
 const api = axios.create({
   baseURL,
   timeout: 10000, // 10 saniye timeout
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 

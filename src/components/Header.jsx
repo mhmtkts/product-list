@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,22 +8,22 @@ function Header() {
           <Link to="/" className="text-2xl font-bold text-gray-800">
             ProductStore
           </Link>
-          
+
           <div className="flex items-center space-x-4">
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Home
             </Link>
-            <Link 
-              to="/categories" 
+            <Link
+              to="/categories"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               Categories
             </Link>
-            <Link 
-              to="/about" 
+            <Link
+              to="/about"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >
               About

@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { loadProducts } from '../products/productsSlice';
-import ProductList from '../components/ProductList';
-import SearchBar from '../components/SearchBar';
-import FilterSection from '../components/FilterSection';
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
+import { loadProducts } from "../products/productsSlice";
+import ProductList from "../components/ProductList";
+import SearchBar from "../components/SearchBar";
+import FilterSection from "../components/FilterSection";
 
 function Home() {
   const dispatch = useDispatch();
   // eslint-disable-next-line no-unused-vars
-  const loading = useSelector(state => state.products.status === 'loading');
+  const loading = useSelector((state) => state.products.status === "loading");
 
   useEffect(() => {
     dispatch(loadProducts());
@@ -19,7 +19,10 @@ function Home() {
     <>
       <Helmet>
         <title>Ürün Listesi | ProductStore</title>
-        <meta name="description" content="En kaliteli ürünler uygun fiyatlarla ProductStore'da!" />
+        <meta
+          name="description"
+          content="En kaliteli ürünler uygun fiyatlarla ProductStore'da!"
+        />
         <meta name="keywords" content="online alışveriş, ürünler, e-ticaret" />
       </Helmet>
 

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useDebounce = (value, delay = 500) => {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -24,11 +24,11 @@ export const useImageLazyLoading = (imageUrl) => {
   useEffect(() => {
     const img = new Image();
     img.src = imageUrl;
-    
+
     img.onload = () => {
       setLoaded(true);
     };
-    
+
     img.onerror = () => {
       setError(true);
     };

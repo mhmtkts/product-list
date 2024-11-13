@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
+
 const ProductList = () => {
 // filteredItems'ı kullanıyoruz, items yerine
 const filteredProducts = useSelector((state) => state.products.filteredItems);
 const [currentPage, setCurrentPage] = useState(1);
 const PER_PAGE = 24;
+
 // Filtreler değiştiğinde sayfa 1'e dön
 const filters = useSelector((state) => ({
 category: state.products.categoryFilter,
 price: state.products.priceFilter,
 search: state.products.searchQuery
 }));
+
 useEffect(() => {
 setCurrentPage(1);
 }, [filters.category, filters.price, filters.search]);
@@ -20,6 +23,8 @@ const displayedProducts = filteredProducts.slice(
 (currentPage - 1) * PER_PAGE,
 currentPage * PER_PAGE
 );
+
+
 // Eğer filtrelenmiş ürün yoksa mesaj göster
 if (filteredProducts.length === 0) {
 return (
@@ -28,6 +33,8 @@ return (
 </div>
 );
 }
+
+
 return (
 <div className="container mx-auto px-4">
 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

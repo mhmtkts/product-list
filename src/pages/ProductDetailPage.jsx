@@ -1,21 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { Helmet } from 'react-helmet';
-import { fetchProductById } from '../products/productsSlice';
-import { formatPrice, generateMetaTags } from '../utils/helpers';
-import LoadingSpinner from '../components/LoadingSpinner';
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
+import { fetchProductById } from "../products/productsSlice";
+import { formatPrice, generateMetaTags } from "../utils/helpers";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function ProductDetailPage() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
 
-  const product = useSelector(state => {
+  const product = useSelector((state) => {
     if (!state.products.items) {
       return null;
     }
-    return state.products.items.find(item => item.id === parseInt(id));
+    return state.products.items.find((item) => item.id === parseInt(id));
   });
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function ProductDetailPage() {
       setLoading(true);
       dispatch(fetchProductById(id))
         .unwrap()
-        .catch(error => console.error('Ürün yüklenemedi:', error))
+        .catch((error) => console.error("Ürün yüklenemedi:", error))
         .finally(() => setLoading(false));
     } else {
       setLoading(false);
@@ -38,7 +38,9 @@ function ProductDetailPage() {
     return (
       <div className="text-center mt-10">
         <h2 className="text-2xl text-red-500">Ürün bulunamadı.</h2>
-        <p className="mt-4 text-gray-600">Aradığınız ürün mevcut değil veya kaldırılmış olabilir.</p>
+        <p className="mt-4 text-gray-600">
+          Aradığınız ürün mevcut değil veya kaldırılmış olabilir.
+        </p>
       </div>
     );
   }
@@ -67,11 +69,15 @@ function ProductDetailPage() {
           </div>
 
           <div className="md:w-1/2 p-6">
-            <h1 className="text-2xl font-bold text-gray-800">{product.title}</h1>
+            <h1 className="text-2xl font-bold text-gray-800">
+              {product.title}
+            </h1>
             <p className="text-lg font-semibold text-gray-600 mt-2">
               {formatPrice(product.price)}
             </p>
-            <p className="text-sm text-gray-500 mt-1">Kategori: {product.category}</p>
+            <p className="text-sm text-gray-500 mt-1">
+              Kategori: {product.category}
+            </p>
 
             <div className="mt-4">
               <p className="text-gray-700">{product.description}</p>
