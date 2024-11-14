@@ -51,7 +51,7 @@ const ImageCarousel = ({ images }) => {
             >
               <LazyLoadImage
                 src={image}
-                alt={`Küçük görsel ${index + 1}`}
+                alt={`Small image ${index + 1}`}
                 effect="blur"
                 className="w-full h-full object-contain bg-white"
               />
@@ -67,7 +67,7 @@ const ImageCarousel = ({ images }) => {
           >
             <LazyLoadImage
               src={images[currentIndex]}
-              alt={`Ürün görseli ${currentIndex + 1}`}
+              alt={`Product image ${currentIndex + 1}`}
               effect="blur"
               className="w-full max-h-96 object-contain cursor-zoom-in"
             />
@@ -97,7 +97,7 @@ const ImageCarousel = ({ images }) => {
                   >
                     <LazyLoadImage
                       src={images[currentIndex]}
-                      alt={`Ürün görseli ${currentIndex + 1}`}
+                      alt={`Product image ${currentIndex + 1}`}
                       effect="blur"
                       className="max-w-full max-h-full object-contain cursor-zoom-in transform-gpu"
                       style={{
@@ -137,7 +137,7 @@ const ImageCarousel = ({ images }) => {
                   >
                     <LazyLoadImage
                       src={image}
-                      alt={`Küçük görsel ${index + 1}`}
+                      alt={`Small image ${index + 1}`}
                       effect="blur"
                       className="w-full h-full object-contain"
                     />

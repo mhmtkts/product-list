@@ -52,32 +52,48 @@ export const groupCategories = (products) => {
 // Fiyat aralıklarını oluşturmak için yardımcı fonksiyon
 export const generatePriceRanges = (products) => {
   if (!products || products.length === 0) {
-    return []; // Ürün yoksa boş dizi döndür
+    return [];
   }
 
-  const prices = products.map((p) => p.price).filter((price) => !isNaN(price));
+  // Geçerli fiyatları filtrele
+  const prices = products
+    .map((p) => p.price)
+    .filter((price) => !isNaN(price) && price >= 0);
 
   if (prices.length === 0) {
-    return []; // Geçerli fiyat yoksa boş dizi döndür
+    return [];
   }
 
-  const min = Math.min(...prices);
-  const max = Math.max(...prices);
+  // Önceden tanımlanmış fiyat aralıkları
+  const predefinedRanges = [
+    { min: 0, max: 10 },      // $0-$10 arası ürünler
+    { min: 10, max: 30 },     // $10-$30 arası ürünler
+    { min: 30, max: 70 },     // $30-$70 arası ürünler
+    { min: 70, max: 150 },    // $70-$150 arası ürünler
+    { min: 150, max: 300 },   // $150-$300 arası ürünler
+    { min: 300, max: 500 },   // $300-$500 arası ürünler
+    { min: 500, max: 1000 },  // $500-$1000 arası ürünler
+    { min: 1000, max: Number.MAX_SAFE_INTEGER } // $1000 üzeri ürünler
+  ];
 
-  // Eğer min ve max aynıysa veya çok yakınsa
-  if (max - min < 1) {
-    return [
-      {
-        min: Math.floor(min),
-        max: Math.ceil(max),
-      },
-    ];
-  }
+  // Her aralıktaki ürün sayısını hesapla
+  const rangesWithCounts = predefinedRanges.map(range => {
+    const count = prices.filter(
+      price => price >= range.min && price < range.max
+    ).length;
 
-  const step = (max - min) / 10; // 4 aralık oluştur
+    return {
+      ...range,
+      count,
+      label: range.max === Number.MAX_SAFE_INTEGER 
+        ? `$${range.min}+`
+        : `$${range.min} - $${range.max}`,
+      products: products.filter(
+        product => product.price >= range.min && product.price < range.max
+      )
+    };
+  });
 
-  return Array.from({ length: 10 }, (_, i) => ({
-    min: Math.round(min + step * i),
-    max: Math.round(min + step * (i + 1)),
-  }));
+  // Boş aralıkları filtrele
+  return rangesWithCounts.filter(range => range.count > 0);
 };

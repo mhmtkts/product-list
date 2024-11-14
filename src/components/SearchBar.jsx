@@ -25,7 +25,7 @@ function SearchBar() {
         value={searchTerm}
         onChange={handleSearch}
         className="p-2 pl-10 border border-gray-300 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        aria-label="Search"
+        aria-label="Product search bar"
       />
       <svg
         className="absolute left-3 top-2.5 h-5 w-5 text-gray-400"

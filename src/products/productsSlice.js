@@ -3,6 +3,7 @@ import {
   fetchProducts,
   fetchProductById as fetchProductByIdAPI,
 } from "./productsAPI";
+
 // Async action: Ürünleri API'den çekme
 export const loadProducts = createAsyncThunk(
   "products/loadProducts",
@@ -11,6 +12,7 @@ export const loadProducts = createAsyncThunk(
     return response;
   }
 );
+
 export const fetchProductById = createAsyncThunk(
   "products/fetchProductById",
   async (id) => {
@@ -18,6 +20,36 @@ export const fetchProductById = createAsyncThunk(
     return response;
   }
 );
+
+// Filtreleri uygulayan yardımcı fonksiyon
+const applyFilters = (state) => {
+  const { items, categoryFilter, priceFilter, searchQuery } = state;
+  
+  return items.filter((product) => {
+    // Kategori filtreleme
+    const matchesCategory = !categoryFilter
+      ? true
+      : product.category === categoryFilter;
+
+    // Fiyat filtreleme - priceFilter null ise tüm fiyatları göster
+    const matchesPrice = !priceFilter
+      ? true
+      : product.price >= priceFilter[0] && 
+        (priceFilter[1] === Number.MAX_SAFE_INTEGER 
+          ? true 
+          : product.price <= priceFilter[1]);
+
+    // Arama filtreleme
+    const matchesSearch = !searchQuery
+      ? true
+      : product.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.category?.toLowerCase().includes(searchQuery.toLowerCase());
+
+    return matchesCategory && matchesPrice && matchesSearch;
+  });
+};
+
 const productsSlice = createSlice({
   name: "products",
   initialState: {
@@ -26,7 +58,7 @@ const productsSlice = createSlice({
     status: "idle", // 'loading', 'succeeded', 'failed'
     error: null,
     categoryFilter: "",
-    priceFilter: [0, 1000],
+    priceFilter: null, // Başlangıçta null, seçildiğinde [min, max] array olacak
     searchQuery: "",
   },
   reducers: {
@@ -51,7 +83,7 @@ const productsSlice = createSlice({
       .addCase(loadProducts.fulfilled, (state, action) => {
         state.status = "succeeded";
         state.items = action.payload;
-        state.filteredItems = action.payload; // Varsayılan olarak tüm ürünleri göster
+        state.filteredItems = action.payload;
       })
       .addCase(loadProducts.rejected, (state, action) => {
         state.status = "failed";
@@ -65,25 +97,9 @@ const productsSlice = createSlice({
       });
   },
 });
-// Filtreleri uygulayan yardımcı fonksiyon
-const applyFilters = (state) => {
-  const { items, categoryFilter, priceFilter, searchQuery } = state;
-  return items.filter((product) => {
-    const matchesCategory = !categoryFilter
-      ? true
-      : product.category === categoryFilter;
-    const matchesPrice = !priceFilter.length
-      ? true
-      : product.price >= priceFilter[0] && product.price <= priceFilter[1];
-    const matchesSearch = !searchQuery
-      ? true
-      : product.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description?.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesPrice && matchesSearch;
-  });
-};
-// Reducer ve actionları export ediyoruz
+
+// Actions ve reducer export
 export const { setCategoryFilter, setPriceFilter, setSearchQuery } =
   productsSlice.actions;
+
 export default productsSlice.reducer;

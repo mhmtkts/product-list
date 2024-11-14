@@ -1,4 +1,6 @@
+/* eslint-disable react/jsx-no-undef */
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll"
 
 function Header() {
   return (
@@ -16,12 +18,14 @@ function Header() {
             >
               Home
             </Link>
-            <Link
-              to="/about"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
+            <ScrollLink
+              to="footer-about" // Scroll yapacağı hedef name
+              smooth={true}
+              duration={500}
+              className="text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
             >
               About
-            </Link>
+            </ScrollLink>
           </div>
         </div>
       </nav>
