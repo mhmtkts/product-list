@@ -1,10 +1,23 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { useImageLazyLoading } from "../hooks/useDebounce";
-import { formatPrice, truncateText, getImagePlaceholder, calculateDiscountedPrice } from "../utils/helpers";
+import {
+  formatPrice,
+  truncateText,
+  getImagePlaceholder,
+  calculateDiscountedPrice,
+} from "../utils/helpers";
 
 const ProductCard = ({ product }) => {
-  const { title, price, description, category, thumbnail, rating, discountPercentage } = product;
+  const {
+    title,
+    price,
+    description,
+    category,
+    thumbnail,
+    rating,
+    discountPercentage,
+  } = product;
   const { loaded, error } = useImageLazyLoading(thumbnail);
   const discountedPrice = calculateDiscountedPrice(price, discountPercentage);
 
@@ -23,7 +36,9 @@ const ProductCard = ({ product }) => {
           <img
             src={loaded ? thumbnail : getImagePlaceholder()}
             alt={title}
-            className={`w-full h-full object-cover rounded-t-lg ${!loaded && "hidden"}`}
+            className={`w-full h-full object-cover rounded-t-lg ${
+              !loaded && "hidden"
+            }`}
           />
         </div>
         <div className="p-2">
@@ -33,7 +48,11 @@ const ProductCard = ({ product }) => {
               {Array.from({ length: 5 }).map((_, index) => (
                 <svg
                   key={index}
-                  className={`h-5 w-5 ${index < Math.floor(rating) ? "text-yellow-400" : "text-gray-300"}`}
+                  className={`h-5 w-5 ${
+                    index < Math.floor(rating)
+                      ? "text-yellow-400"
+                      : "text-gray-300"
+                  }`}
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >

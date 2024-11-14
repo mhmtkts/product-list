@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import ProductCard from './ProductCard';
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import ProductCard from "./ProductCard";
 
 const ProductList = () => {
   // filteredItems'ı kullanıyoruz, items yerine
@@ -29,7 +29,8 @@ const ProductList = () => {
   if (filteredProducts.length === 0) {
     return (
       <div className="text-center py-8">
-        <p className="text-gray-500">No products matching your search criteria were found.
+        <p className="text-gray-500">
+          No products matching your search criteria were found.
         </p>
       </div>
     );
@@ -58,8 +59,8 @@ const ProductList = () => {
               onClick={() => setCurrentPage(number)}
               className={`px-4 py-2 rounded ${
                 currentPage === number
-                  ? 'bg-blue-500 text-white'
-                  : 'bg-gray-200'
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200"
               }`}
             >
               {number}
@@ -67,7 +68,9 @@ const ProductList = () => {
           ))}
 
           <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             disabled={currentPage === totalPages}
             className="px-4 py-2 rounded bg-gray-200 disabled:opacity-50"
           >

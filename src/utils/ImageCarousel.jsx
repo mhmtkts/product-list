@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+/* eslint-disable react/prop-types */
+import { useState, useEffect, useRef } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -43,7 +44,9 @@ const ImageCarousel = ({ images }) => {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`relative w-[100px] h-[100px] rounded-lg overflow-hidden border-2 flex-shrink-0 ${
-                currentIndex === index ? "border-blue-500" : "border-transparent"
+                currentIndex === index
+                  ? "border-blue-500"
+                  : "border-transparent"
               }`}
             >
               <LazyLoadImage
@@ -109,7 +112,9 @@ const ImageCarousel = ({ images }) => {
                         const x = (e.clientX - left) / width;
                         const y = (e.clientY - top) / height;
 
-                        element.style.transformOrigin = `${x * 100}% ${y * 100}%`;
+                        element.style.transformOrigin = `${x * 100}% ${
+                          y * 100
+                        }%`;
                         element.style.transform = "scale(2.5)";
                       }}
                       onMouseLeave={(e) => {

@@ -14,7 +14,6 @@ export const calculateDiscountedPrice = (price, discountPercentage) => {
   return price - (price * discountPercentage) / 100;
 };
 
-
 export const generateMetaTags = (product) => {
   if (!product) return {};
 

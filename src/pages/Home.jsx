@@ -23,10 +23,7 @@ function Home() {
           name="description"
           content="The best quality products at affordable prices at ProductStore!"
         />
-        <meta
-          name="keywords"
-          content="online shopping, products, e-commerce"
-        />
+        <meta name="keywords" content="online shopping, products, e-commerce" />
       </Helmet>
 
       <div className="max-w-7xl mx-auto p-6">
