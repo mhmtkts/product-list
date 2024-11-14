@@ -9,7 +9,7 @@ import {
   calculateDiscountedPrice,
 } from "../utils/helpers";
 import LoadingSpinner from "../components/LoadingSpinner";
-import ImageCarousel from "../utils/ImageCarousel"; // Yeni import
+import ImageCarousel from "../utils/ImageCarousel";
 
 function formatName(name) {
   const [firstName, lastName] = name.split(" ");
@@ -210,7 +210,7 @@ function ProductDetailPage() {
             <div className="mt-6">
               <button
                 className="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                aria-label="Sepete ekle"
+                aria-label="Add to cart"
               >
                 Add to cart
               </button>
