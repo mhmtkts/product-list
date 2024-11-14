@@ -32,7 +32,7 @@ function FilterSection() {
         className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-label="Kategori filtresi"
       >
-        <option value="">Tüm Kategoriler</option>
+        <option value="">All Categories</option>
         {categories.map(({ name, count }) => (
           <option key={name} value={name}>
             {name} ({count})
@@ -45,7 +45,7 @@ function FilterSection() {
         className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         aria-label="Fiyat aralığı filtresi"
       >
-        <option value="">Fiyat Aralığı</option>
+        <option value="">Price Range</option>
         {priceRanges.map(({ min, max }) => (
           <option key={`${min}-${max}`} value={`${min}-${max}`}>
             {formatPrice(min)} - {formatPrice(max)}

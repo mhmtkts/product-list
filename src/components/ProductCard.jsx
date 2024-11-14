@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
           )}
           {error && (
             <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-500">Resim yüklenemedi</span>
+              <span className="text-gray-500">Image failed to load</span>
             </div>
           )}
           <img

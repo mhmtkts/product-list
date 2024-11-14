@@ -71,7 +71,7 @@ function ProductDetailPage() {
         <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
           <div className="md:w-1/2 flex justify-center items-center p-4 bg-gray-100">
             <img
-              src={product.thumbnail}
+              src={product.images}
               alt={product.title}
               className="rounded-lg shadow-lg w-full h-auto max-h-80 object-contain"
             />

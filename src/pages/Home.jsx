@@ -18,17 +18,20 @@ function Home() {
   return (
     <>
       <Helmet>
-        <title>Ürün Listesi | ProductStore</title>
+        <title>Product List | ProductStore</title>
         <meta
           name="description"
-          content="En kaliteli ürünler uygun fiyatlarla ProductStore'da!"
+          content="The best quality products at affordable prices at ProductStore!"
         />
-        <meta name="keywords" content="online alışveriş, ürünler, e-ticaret" />
+        <meta
+          name="keywords"
+          content="online shopping, products, e-commerce"
+        />
       </Helmet>
 
       <div className="max-w-7xl mx-auto p-6">
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          Ürün Listesi
+          Product List
         </h1>
 
         <div className="mb-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
