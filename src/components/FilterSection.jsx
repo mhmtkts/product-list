@@ -1,16 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setCategoryFilter, setPriceFilter } from "../products/productsSlice";
-import {
-  generatePriceRanges,
-  groupCategories,
-} from "../utils/helpers";
+import { generatePriceRanges, groupCategories } from "../utils/helpers";
 
 function FilterSection() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.items);
   const categoryFilter = useSelector((state) => state.products.categoryFilter);
   const priceFilter = useSelector((state) => state.products.priceFilter);
-  
+
   const categories = groupCategories(products);
   const priceRanges = generatePriceRanges(products);
 
@@ -23,18 +20,20 @@ function FilterSection() {
       dispatch(setPriceFilter(null));
       return;
     }
-    
+
     const [min, maxStr] = event.target.value.split("-");
     const max = maxStr === "inf" ? Number.MAX_SAFE_INTEGER : Number(maxStr);
-    
+
     if (!isNaN(min) && !isNaN(max)) {
       dispatch(setPriceFilter([Number(min), max]));
     }
   };
 
   // Aktif fiyat aralığı değerini hesapla
-  const activePriceRangeValue = priceFilter 
-    ? `${priceFilter[0]}-${priceFilter[1] === Number.MAX_SAFE_INTEGER ? "inf" : priceFilter[1]}`
+  const activePriceRangeValue = priceFilter
+    ? `${priceFilter[0]}-${
+        priceFilter[1] === Number.MAX_SAFE_INTEGER ? "inf" : priceFilter[1]
+      }`
     : "";
 
   return (
@@ -65,8 +64,8 @@ function FilterSection() {
       >
         <option value="">All Prices</option>
         {priceRanges.map(({ min, max, count, label }) => (
-          <option 
-            key={`${min}-${max}`} 
+          <option
+            key={`${min}-${max}`}
             value={`${min}-${max === Number.MAX_SAFE_INTEGER ? "inf" : max}`}
           >
             {label} ({count})

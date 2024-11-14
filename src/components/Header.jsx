@@ -1,6 +1,5 @@
-/* eslint-disable react/jsx-no-undef */
 import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll"
+import { Link as ScrollLink } from "react-scroll";
 
 function Header() {
   return (

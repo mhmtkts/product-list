@@ -24,7 +24,7 @@ export const fetchProductById = createAsyncThunk(
 // Filtreleri uygulayan yardımcı fonksiyon
 const applyFilters = (state) => {
   const { items, categoryFilter, priceFilter, searchQuery } = state;
-  
+
   return items.filter((product) => {
     // Kategori filtreleme
     const matchesCategory = !categoryFilter
@@ -34,16 +34,18 @@ const applyFilters = (state) => {
     // Fiyat filtreleme - priceFilter null ise tüm fiyatları göster
     const matchesPrice = !priceFilter
       ? true
-      : product.price >= priceFilter[0] && 
-        (priceFilter[1] === Number.MAX_SAFE_INTEGER 
-          ? true 
+      : product.price >= priceFilter[0] &&
+        (priceFilter[1] === Number.MAX_SAFE_INTEGER
+          ? true
           : product.price <= priceFilter[1]);
 
     // Arama filtreleme
     const matchesSearch = !searchQuery
       ? true
       : product.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        product.description?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.description
+          ?.toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
         product.category?.toLowerCase().includes(searchQuery.toLowerCase());
 
     return matchesCategory && matchesPrice && matchesSearch;

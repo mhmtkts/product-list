@@ -66,34 +66,35 @@ export const generatePriceRanges = (products) => {
 
   // Önceden tanımlanmış fiyat aralıkları
   const predefinedRanges = [
-    { min: 0, max: 10 },      // $0-$10 arası ürünler
-    { min: 10, max: 30 },     // $10-$30 arası ürünler
-    { min: 30, max: 70 },     // $30-$70 arası ürünler
-    { min: 70, max: 150 },    // $70-$150 arası ürünler
-    { min: 150, max: 300 },   // $150-$300 arası ürünler
-    { min: 300, max: 500 },   // $300-$500 arası ürünler
-    { min: 500, max: 1000 },  // $500-$1000 arası ürünler
-    { min: 1000, max: Number.MAX_SAFE_INTEGER } // $1000 üzeri ürünler
+    { min: 0, max: 10 }, // $0-$10 arası ürünler
+    { min: 10, max: 30 }, // $10-$30 arası ürünler
+    { min: 30, max: 70 }, // $30-$70 arası ürünler
+    { min: 70, max: 150 }, // $70-$150 arası ürünler
+    { min: 150, max: 300 }, // $150-$300 arası ürünler
+    { min: 300, max: 500 }, // $300-$500 arası ürünler
+    { min: 500, max: 1000 }, // $500-$1000 arası ürünler
+    { min: 1000, max: Number.MAX_SAFE_INTEGER }, // $1000 üzeri ürünler
   ];
 
   // Her aralıktaki ürün sayısını hesapla
-  const rangesWithCounts = predefinedRanges.map(range => {
+  const rangesWithCounts = predefinedRanges.map((range) => {
     const count = prices.filter(
-      price => price >= range.min && price < range.max
+      (price) => price >= range.min && price < range.max
     ).length;
 
     return {
       ...range,
       count,
-      label: range.max === Number.MAX_SAFE_INTEGER 
-        ? `$${range.min}+`
-        : `$${range.min} - $${range.max}`,
+      label:
+        range.max === Number.MAX_SAFE_INTEGER
+          ? `$${range.min}+`
+          : `$${range.min} - $${range.max}`,
       products: products.filter(
-        product => product.price >= range.min && product.price < range.max
-      )
+        (product) => product.price >= range.min && product.price < range.max
+      ),
     };
   });
 
   // Boş aralıkları filtrele
-  return rangesWithCounts.filter(range => range.count > 0);
+  return rangesWithCounts.filter((range) => range.count > 0);
 };
