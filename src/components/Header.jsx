@@ -17,12 +17,6 @@ function Header() {
               Home
             </Link>
             <Link
-              to="/categories"
-              className="text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              Categories
-            </Link>
-            <Link
               to="/about"
               className="text-gray-600 hover:text-gray-900 transition-colors"
             >

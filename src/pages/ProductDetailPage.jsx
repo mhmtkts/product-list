@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { fetchProductById } from "../products/productsSlice";
 import { formatPrice, generateMetaTags, calculateDiscountedPrice } from "../utils/helpers";
 import LoadingSpinner from "../components/LoadingSpinner";
+import ImageCarousel from "../utils/ImageCarousel"; // Yeni import
 
 function formatName(name) {
   const [firstName, lastName] = name.split(" ");
@@ -45,9 +46,9 @@ function ProductDetailPage() {
   if (!product) {
     return (
       <div className="text-center mt-10">
-        <h2 className="text-2xl text-red-500">Ürün bulunamadı.</h2>
+        <h2 className="text-2xl text-red-500">Product not found.</h2>
         <p className="mt-4 text-gray-600">
-          Aradığınız ürün mevcut değil veya kaldırılmış olabilir.
+          The product you are looking for may not be available or may have been removed.
         </p>
       </div>
     );
@@ -55,6 +56,7 @@ function ProductDetailPage() {
 
   const meta = generateMetaTags(product);
   const discountedPrice = calculateDiscountedPrice(product.price, product.discountPercentage);
+  const productImages = Array.isArray(product.images) ? product.images : [product.images];
 
   return (
     <>
@@ -69,11 +71,13 @@ function ProductDetailPage() {
 
       <div className="max-w-5xl mx-auto p-6">
         <div className="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
-          <div className="md:w-1/2 flex justify-center items-center p-4 bg-gray-100">
-            <img
-              src={product.images}
-              alt={product.title}
-              className="rounded-lg shadow-lg w-full h-auto max-h-80 object-contain"
+          <div className="md:w-1/2 p-4 bg-gray-100">
+            <ImageCarousel 
+              images={productImages}
+              autoPlayInterval={5000}
+              showThumbnails={true}
+              enableAutoPlay={true}
+              enableZoom={true}
             />
           </div>
 
