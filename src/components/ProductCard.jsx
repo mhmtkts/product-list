@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-import { useImageLazyLoading } from "../hooks/useDebounce";
+import { useImageLazyLoading } from "../hooks/useImageLazyLoading";
 import {
   formatPrice,
   truncateText,

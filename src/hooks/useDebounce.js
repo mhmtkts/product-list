@@ -15,24 +15,3 @@ export const useDebounce = (value, delay = 500) => {
 
   return debouncedValue;
 };
-
-// Görsel lazy loading için custom hook
-export const useImageLazyLoading = (imageUrl) => {
-  const [loaded, setLoaded] = useState(false);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = imageUrl;
-
-    img.onload = () => {
-      setLoaded(true);
-    };
-
-    img.onerror = () => {
-      setError(true);
-    };
-  }, [imageUrl]);
-
-  return { loaded, error };
-};

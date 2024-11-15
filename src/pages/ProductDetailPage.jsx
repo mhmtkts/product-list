@@ -9,7 +9,7 @@ import {
   calculateDiscountedPrice,
 } from "../utils/helpers";
 import LoadingSpinner from "../components/LoadingSpinner";
-import ImageCarousel from "../utils/ImageCarousel";
+import ImageCarousel from "../components/ImageCarousel";
 
 function formatName(name) {
   const [firstName, lastName] = name.split(" ");
