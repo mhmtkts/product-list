@@ -27,7 +27,7 @@ Bu proje, React ve Redux kullanılarak geliştirilmiş bir ürün listeleme ve f
 
 **Projenin indirilmesi:** Terminalde aşağıdaki komutu çalıştırarak projeyi GitHub'dan indirin:
 
-git clone https://github.com/mhmtkts/bulut-system.git
+git clone https://github.com/mhmtkts/product-list.git
 
 **Bağımlılıkların yüklenmesi:** Proje klasörüne girin ve aşağıdaki komutu çalıştırarak projenin bağımlılıklarını yükleyin:
 
