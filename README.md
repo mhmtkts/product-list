@@ -39,3 +39,21 @@ npm install
 npm run dev
 
 Bu komut http://localhost:5173/ adresinde projeyi başlatacaktır.
+
+## 🤝 Katkıda Bulunma
+
+1. Bu repository'yi fork edin
+2. Feature branch'i oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'feat: Add amazing feature'`)
+4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. Pull Request oluşturun
+
+## 📝 Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasını inceleyebilirsiniz.
+
+## 📧 İletişim
+
+Mehmet Aktaş - [@mhmtkts](https://github.com/mhmtkts)
+
+Proje Linki: [https://github.com/mhmtkts/product-list](https://github.com/mhmtkts/product-list)
