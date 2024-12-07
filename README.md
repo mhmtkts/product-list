@@ -2,43 +2,38 @@
 
 Bu proje, React ve Redux kullanılarak geliştirilmiş bir ürün listeleme ve filtreleme uygulamasıdır. Kullanıcılar ürünleri kategori ve fiyat aralıklarına göre filtreleyebilir, detay sayfalarını inceleyebilir ve görsellerde yakınlaştırma yapabilirler.
 
-**Özellikler** 
-- Ürün Listeleme: API'den çekilen ürünler listelenir.
-- Filtreleme: Kullanıcılar kategorilere ve fiyat aralıklarına göre filtre yapabilir.
-- Arama Özelliği: Ürün başlığı, açıklaması veya kategorisine göre arama yapabilirsiniz.
-- Ürün Detayları: Ürünlerin detaylarını ve görsellerini inceleyebilirsiniz.
-- Lazy Loading: Görseller, performans için gecikmeli olarak yüklenir.
+### Özellikler
+- Ürün Listeleme: API'den çekilen ürünler listelenir
+- Filtreleme: Kategorilere ve fiyat aralıklarına göre filtreleme
+- Arama: Ürün başlığı, açıklaması veya kategorisinde arama
+- Ürün Detayları: Detaylı ürün bilgileri ve görsel inceleme
+- Lazy Loading: Performans optimizasyonu için gecikmeli görsel yükleme
 
-**Kullanılan Kütüphaneler** 
-- React: Kullanıcı arayüzünü oluşturmak için.
-- Redux: Global durum yönetimi.
-- axios: API taleplerini yönetmek için.
-- react-router-dom: Sayfa geçişlerini yönetmek için.
-- react-lazy-load-image-component: Görsel yüklemeyi geciktirme.
-- TailwindCSS: Stil yönetimi.
-- vite: Geliştirme sunucusu ve derleyici.
+### Teknolojiler
+- React
+- Redux
+- Axios
+- React Router DOM
+- React Lazy Load Image Component
+- TailwindCSS
+- Vite
 
+### Kurulum
 
-**Node.js ve npm kurulumu:**  Bu proje Node.js tabanlı olduğu için öncelikle bilgisayarınıza Node.js ve npm (Node.js paket yöneticisi) yüklemeniz gerekiyor. Node.js'in resmi web sitesinden (https://nodejs.org/) uygun sürümü indirebilirsiniz.
+1. **Gereksinimler**
+   - Node.js ve npm ([https://nodejs.org/](https://nodejs.org/))
+   - Git ([https://git-scm.com/](https://git-scm.com/))
 
-**Git kurulumu:** Bu projeyi GitHub'dan indireceğiniz için Git'in de yüklü olması gerekiyor. Git'in resmi web sitesinden (https://git-scm.com/) uygun sürümü indirebilirsiniz.
+2. **Projeyi İndirme**   ```bash
+   git clone https://github.com/mhmtkts/product-list.git   ```
 
-**Proje klasörünün oluşturulması:** Projeyi indirmek istediğiniz bir klasör oluşturun ve bu klasörün içinde bir terminal/komut istemi açın.
+3. **Bağımlılıkları Yükleme**   ```bash
+   cd product-list
+   npm install   ```
 
-**Projenin indirilmesi:** Terminalde aşağıdaki komutu çalıştırarak projeyi GitHub'dan indirin:
-
-git clone https://github.com/mhmtkts/product-list.git
-
-**Bağımlılıkların yüklenmesi:** Proje klasörüne girin ve aşağıdaki komutu çalıştırarak projenin bağımlılıklarını yükleyin:
-
-cd bulut-system
-npm install
-
-**Projenin başlatılması:** Bağımlılıklar yüklendikten sonra, aşağıdaki komutu çalıştırarak projeyi başlatabilirsiniz:
-
-npm run dev
-
-Bu komut http://localhost:5173/ adresinde projeyi başlatacaktır.
+4. **Projeyi Başlatma**   ```bash
+   npm run dev   ```
+   Uygulama http://localhost:5173/ adresinde çalışacaktır.
 
 ## 🤝 Katkıda Bulunma
 
