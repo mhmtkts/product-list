@@ -1,39 +1,67 @@
-## Proje Açıklaması
+# Ürün Listeleme ve Filtreleme Uygulaması
 
-Bu proje, React ve Redux kullanılarak geliştirilmiş bir ürün listeleme ve filtreleme uygulamasıdır. Kullanıcılar ürünleri kategori ve fiyat aralıklarına göre filtreleyebilir, detay sayfalarını inceleyebilir ve görsellerde yakınlaştırma yapabilirler.
+<div align="center">
 
-### Özellikler
-- Ürün Listeleme: API'den çekilen ürünler listelenir
-- Filtreleme: Kategorilere ve fiyat aralıklarına göre filtreleme
-- Arama: Ürün başlığı, açıklaması veya kategorisinde arama
-- Ürün Detayları: Detaylı ürün bilgileri ve görsel inceleme
-- Lazy Loading: Performans optimizasyonu için gecikmeli görsel yükleme
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
 
-### Teknolojiler
-- React
-- Redux
-- Axios
-- React Router DOM
-- React Lazy Load Image Component
-- TailwindCSS
-- Vite
+</div>
 
-### Kurulum
+## 📋 Genel Bakış
 
-1. **Gereksinimler**
-   - Node.js ve npm ([https://nodejs.org/](https://nodejs.org/))
-   - Git ([https://git-scm.com/](https://git-scm.com/))
+Modern web teknolojileri kullanılarak geliştirilmiş, kullanıcı dostu bir ürün listeleme ve filtreleme uygulaması. Gelişmiş filtreleme özellikleri ve optimize edilmiş performansı ile kullanıcılara sorunsuz bir deneyim sunar.
 
-2. **Projeyi İndirme**   ```bash
-   git clone https://github.com/mhmtkts/product-list.git   ```
+## ✨ Özellikler
 
-3. **Bağımlılıkları Yükleme**   ```bash
-   cd product-list
+- 🔍 **Gelişmiş Filtreleme**: Kategori ve fiyat aralıklarına göre dinamik filtreleme
+- 🔎 **Akıllı Arama**: Başlık, açıklama ve kategori bazlı arama
+- 📱 **Responsive Tasarım**: Tüm cihazlarda sorunsuz görüntüleme
+- 🖼️ **Optimize Görseller**: Lazy loading ile performans optimizasyonu
+- 🔍 **Detaylı Ürün Görüntüleme**: Zengin ürün detay sayfaları
+
+## 🛠️ Teknolojiler
+
+### Frontend
+- **React** - UI geliştirme
+- **Redux** - Durum yönetimi
+- **TailwindCSS** - Stil ve tasarım
+- **Vite** - Build tool ve development server
+
+### Yardımcı Kütüphaneler
+- **Axios** - HTTP istekleri
+- **React Router DOM** - Sayfa yönlendirme
+- **React Lazy Load Image** - Görsel optimizasyonu
+
+## 🚀 Kurulum
+
+### Gereksinimler
+
+- Node.js (v14.0.0 veya üzeri)
+- npm (v6.0.0 veya üzeri)
+
+### Adımlar
+
+1. **Projeyi Klonlama**   ```bash
+   git clone https://github.com/mhmtkts/product-list.git
+   cd product-list   ```
+
+2. **Bağımlılıkları Yükleme**   ```bash
    npm install   ```
 
-4. **Projeyi Başlatma**   ```bash
+3. **Geliştirme Ortamını Başlatma**   ```bash
    npm run dev   ```
-   Uygulama http://localhost:5173/ adresinde çalışacaktır.
+
+   Uygulama http://localhost:5173 adresinde çalışmaya başlayacaktır.
+
+## 📦 Build
+
+Projeyi production ortamı için derlemek:
+
+```bash
+npm run build
+```
 
 ## 🤝 Katkıda Bulunma
 
@@ -49,6 +77,6 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 ## 📧 İletişim
 
-Mehmet Aktaş - [@mhmtkts](https://github.com/mhmtkts)
+Mahmut Aktaş - [@mhmtkts](https://github.com/mhmtkts)
 
 Proje Linki: [https://github.com/mhmtkts/product-list](https://github.com/mhmtkts/product-list)
