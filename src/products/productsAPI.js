@@ -1,54 +1,22 @@
-/* eslint-disable no-useless-catch */
 import axios from "axios";
+import { API_CONFIG } from "../config/api";
+import { handleApiError } from "../utils/errorHandler";
 
-// API'nin base URL'ini tanımlayalım
-const baseURL = "https://dummyjson.com";
-
-// Axios instance oluşturalım
 const api = axios.create({
-  baseURL,
-  timeout: 10000, // 10 saniye timeout
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: API_CONFIG.BASE_URL,
+  timeout: API_CONFIG.TIMEOUT,
+  headers: API_CONFIG.HEADERS,
 });
 
-// Tüm ürünleri getir
-export const fetchProducts = async (limit = 200) => {
-  try {
-    const response = await api.get(`/products?limit=${limit}`);
-    return response.data.products;
-  } catch (error) {
-    throw error;
-  }
-};
+export const fetchProducts = (limit = 200) => 
+  handleApiError(() => api.get(`/products?limit=${limit}`))
+    .then(data => data.products);
 
-// Tek bir ürün detayını getir
-export const fetchProductById = async (id) => {
-  try {
-    const response = await api.get(`/products/${id}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+export const fetchProductById = (id) => 
+  handleApiError(() => api.get(`/products/${id}`));
 
-// Kategoriye göre ürünleri getir
-export const fetchProductsByCategory = async (category) => {
-  try {
-    const response = await api.get(`/products?category=${category}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+export const fetchProductsByCategory = (category) => 
+  handleApiError(() => api.get(`/products?category=${category}`));
 
-// Arama sonuçlarını getir
-export const searchProducts = async (query) => {
-  try {
-    const response = await api.get(`/products?search=${query}`);
-    return response.data;
-  } catch (error) {
-    throw error;
-  }
-};
+export const searchProducts = (query) => 
+  handleApiError(() => api.get(`/products?search=${query}`));
