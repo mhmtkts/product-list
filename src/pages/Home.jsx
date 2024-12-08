@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Helmet } from "react-helmet";
 import { loadProducts } from "../products/productsSlice";
 import ProductList from "../components/ProductList";
 import SearchBar from "../components/SearchBar";
 import FilterSection from "../components/FilterSection";
+import SEO from "../components/SEO";
 
 function Home() {
   const dispatch = useDispatch();
@@ -17,15 +17,12 @@ function Home() {
 
   return (
     <>
-      <Helmet>
-        <title>Product List | ProductStore</title>
-        <meta
-          name="description"
-          content="The best quality products at affordable prices at ProductStore!"
-        />
-        <meta name="keywords" content="online shopping, products, e-commerce" />
-      </Helmet>
-
+      <SEO 
+        title="Product List"
+        description="The best quality products at affordable prices at ProductStore!"
+        keywords="online shopping, products, e-commerce"
+      />
+      
       <div className="max-w-7xl mx-auto p-6">
         <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
           Product List

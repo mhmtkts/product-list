@@ -1,7 +1,5 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Provider } from "react-redux";
-import { store } from "./store/store";
+import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import LoadingSpinner from "./components/LoadingSpinner";
 
@@ -11,18 +9,14 @@ const ProductDetailPage = React.lazy(() => import("./pages/ProductDetailPage"));
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <Layout>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/product/:id" element={<ProductDetailPage />} />
-            </Routes>
-          </Suspense>
-        </Layout>
-      </Router>
-    </Provider>
+    <Layout>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
+        </Routes>
+      </Suspense>
+    </Layout>
   );
 }
 
